@@ -9,5 +9,8 @@
   width: 100dvw;
   max-width: 1280px;
   margin: auto;
-  height: 208px;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
 }
