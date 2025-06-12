@@ -1,4 +1,5 @@
 import type { Route } from "./+types/home";
+import Nav from "~/widgets/nav/nav";
 import Header from "~/widgets/header/header";
 
 export function meta({}: Route.MetaArgs) {
@@ -11,6 +12,7 @@ export function meta({}: Route.MetaArgs) {
 export default function Home() {
   return (
     <>
+      <Nav />
       <Header />
     </>
   );
