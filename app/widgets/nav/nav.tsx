@@ -21,9 +21,10 @@ const Nav = () => {
     <>
       {!isPageLoading && createPortal(<PhoneMenuBtn />, document.body)}
       <nav
-        className="py-4 bg-amber-400
-        fixed top-8 -left-full 
-        duration-300
+        className="py-4
+        fixed -top-full left-0 
+        duration-700
+        bg-[var(--main-bg-color)] sm:bg-transparent
         sm:relative sm:top-0 sm:left-0"
 
         id="nav"

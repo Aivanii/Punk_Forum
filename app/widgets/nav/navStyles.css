@@ -1,5 +1,5 @@
 @media screen and (max-width: 639px) {
   .nav-active {
-    left: 0 !important;
+    top: 2rem !important;
   }
 }

@@ -10,6 +10,10 @@
   --font-sans: "Underdog";
 }
 
+:root{
+  --main-bg-color: #151c16ed;
+}
+
 html,
 body {
   color: #c6c6cb;
