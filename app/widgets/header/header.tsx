@@ -1,8 +1,8 @@
 const Header = () => {
   return (
-    <header
-      className="section-container bg-[url('./header-img.png')] h-52"
-    ></header>
+    <header className=" bg-[url('./header-img.png')] h-52">
+      <div className="section-container"></div>
+    </header>
   );
 };
 
