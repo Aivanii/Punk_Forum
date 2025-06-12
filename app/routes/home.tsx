@@ -1,6 +1,7 @@
 import type { Route } from "./+types/home";
-import Nav from "~/widgets/nav/nav";
+import TopBar from "~/widgets/topBar/topBar";
 import Header from "~/widgets/header/header";
+import Nav from "~/widgets/nav/nav";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -12,8 +13,11 @@ export function meta({}: Route.MetaArgs) {
 export default function Home() {
   return (
     <>
-      <Nav />
+      <TopBar />
       <Header />
+      <div className="bg-[url(./nav-bg.png)]">
+        <Nav />
+      </div>
     </>
   );
 }

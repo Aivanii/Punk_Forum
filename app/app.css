@@ -1,8 +1,19 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Underdog";
+  src: url(./fonts/Underdog.ttf) format("truetype");
+  font-weight: 400;
+}
+
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-sans: "Underdog";
+}
+
+html,
+body {
+  color: #c6c6cb;
+  font-family: Underdog;
 }
 
 .section-container {
