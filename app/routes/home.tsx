@@ -1,4 +1,5 @@
 import type { Route } from "./+types/home";
+import Header from "~/widgets/header/header";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -8,5 +9,9 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
-  return <>home</>;
+  return (
+    <>
+      <Header />
+    </>
+  );
 }
