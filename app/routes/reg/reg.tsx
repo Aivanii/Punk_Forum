@@ -11,17 +11,40 @@ export function meta({}: Route.MetaArgs) {
 
 export default function Reg() {
   return (
-    <div>
-      <form onSubmit={handleSubmit} className="bg-amber-200">
-        <label htmlFor="email">Почта:</label>
-        <input name="email" type="email" required />
+    <div className="bg-[#192024] w-dvw h-dvh">
+      <form
+        onSubmit={handleSubmit}
+        className="absolute top-1/2 left-1/2 -translate-1/2 flex justify-center items-center flex-col gap-4"
+      >
+        <h1 className="main-title">Регистрация</h1>
+        <div className="flex flex-col">
+          <label htmlFor="email">Почта:</label>
+          <input
+            name="email"
+            type="email"
+            required
+            className="standart-input"
+          />
+        </div>
 
-        <label htmlFor="pass">Пароль:</label>
-        <input name="pass" type="text" required />
-        <label htmlFor="pass-again">Пароль (ещё раз)</label>
-        <input name="pass-again" type="password" required />
+        <div className="flex flex-col">
+          <label htmlFor="pass">Пароль:</label>
+          <input name="pass" type="password" required className="standart-input" />
+        </div>
 
-        <button type="submit">Продолжить</button>
+        <div className="flex flex-col">
+          <label htmlFor="pass-again">Пароль (ещё раз)</label>
+          <input
+            name="pass-again"
+            type="password"
+            required
+            className="standart-input"
+          />
+        </div>
+
+        <button type="submit" className="standart-btn">
+          Продолжить
+        </button>
       </form>
     </div>
   );
