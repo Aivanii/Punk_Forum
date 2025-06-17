@@ -1,6 +1,8 @@
 import type { Route } from "../+types/home";
-import { checkForm } from "./checkForm";
 import { handleSubmit } from "./handleSubmit";
+import type { FormProps } from "./formProps";
+import { useState } from "react";
+import { changeFormData } from "./changeFormData";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -10,6 +12,12 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Reg() {
+  const [formProps, setFormProps] = useState<FormProps>({
+    email: "",
+    pass: "",
+    passAgain: "",
+  });
+
   return (
     <div className="bg-[#192024] w-dvw h-dvh">
       <form
@@ -24,21 +32,38 @@ export default function Reg() {
             type="email"
             required
             className="standart-input"
+            value={formProps.email}
+            onChange={(event) => {
+              setFormProps(changeFormData(event, formProps));
+            }}
           />
         </div>
 
         <div className="flex flex-col">
           <label htmlFor="pass">Пароль:</label>
-          <input name="pass" type="password" required className="standart-input" />
-        </div>
-
-        <div className="flex flex-col">
-          <label htmlFor="pass-again">Пароль (ещё раз)</label>
           <input
-            name="pass-again"
+            name="pass"
             type="password"
             required
             className="standart-input"
+            value={formProps.pass}
+            onChange={(event) => {
+              setFormProps(changeFormData(event, formProps));
+            }}
+          />
+        </div>
+
+        <div className="flex flex-col">
+          <label htmlFor="passAgain">Пароль (ещё раз)</label>
+          <input
+            name="passAgain"
+            type="password"
+            required
+            className="standart-input"
+            value={formProps.passAgain}
+            onChange={(event) => {
+              setFormProps(changeFormData(event, formProps));
+            }}
           />
         </div>
 
