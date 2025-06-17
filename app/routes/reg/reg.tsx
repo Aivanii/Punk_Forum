@@ -34,7 +34,9 @@ export default function Reg() {
             className="standart-input"
             value={formProps.email}
             onChange={(event) => {
-              setFormProps(changeFormData(event, formProps));
+              setFormProps(
+                changeFormData({ event: event, FormProps: formProps })
+              );
             }}
           />
         </div>
@@ -48,7 +50,9 @@ export default function Reg() {
             className="standart-input"
             value={formProps.pass}
             onChange={(event) => {
-              setFormProps(changeFormData(event, formProps));
+              setFormProps(
+                changeFormData({ event: event, FormProps: formProps })
+              );
             }}
           />
         </div>
@@ -62,7 +66,9 @@ export default function Reg() {
             className="standart-input"
             value={formProps.passAgain}
             onChange={(event) => {
-              setFormProps(changeFormData(event, formProps));
+              setFormProps(
+                changeFormData({ event: event, FormProps: formProps })
+              );
             }}
           />
         </div>

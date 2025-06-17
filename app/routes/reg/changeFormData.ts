@@ -23,3 +23,5 @@ const changeFormData = (data: getNewFormDataForChange): FormProps => {
 
   return { ...newFormProps };
 };
+
+export { changeFormData };
