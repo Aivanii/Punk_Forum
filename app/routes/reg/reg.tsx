@@ -3,6 +3,7 @@ import { handleSubmit } from "./handleSubmit";
 import type { FormProps } from "./formProps";
 import { useState } from "react";
 import { changeFormData } from "./changeFormData";
+import { checkFormEmail, checkFormPasswords } from "./checkFormFields";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -31,7 +32,11 @@ export default function Reg() {
             name="email"
             type="email"
             required
-            className="standart-input"
+            className={
+              checkFormEmail(formProps.email)
+                ? "standart-input"
+                : "standart-input-wrong-value"
+            }
             value={formProps.email}
             onChange={(event) => {
               setFormProps(
@@ -47,7 +52,11 @@ export default function Reg() {
             name="pass"
             type="password"
             required
-            className="standart-input"
+            className={
+              checkFormPasswords(formProps.pass, formProps.passAgain)
+                ? "standart-input"
+                : "standart-input-wrong-value"
+            }
             value={formProps.pass}
             onChange={(event) => {
               setFormProps(
@@ -63,7 +72,11 @@ export default function Reg() {
             name="passAgain"
             type="password"
             required
-            className="standart-input"
+            className={
+              checkFormPasswords(formProps.pass, formProps.passAgain)
+                ? "standart-input"
+                : "standart-input-wrong-value"
+            }
             value={formProps.passAgain}
             onChange={(event) => {
               setFormProps(
