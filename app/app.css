@@ -12,6 +12,8 @@
 
 :root {
   --main-bg-color: #151c16ed;
+  --primary-color: rgb(6,6,6);
+  --secondary-color: rgb(16, 16, 16);
 }
 
 html,
@@ -63,5 +65,5 @@ input {
 
 
 .standart-btn:hover {
-  background: rgb(6, 6, 6);
+  background: var(--primary-color);
 }
