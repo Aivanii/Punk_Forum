@@ -47,26 +47,49 @@ describe("useFetch Hook", () => {
     );
   });
 
-  it("Network error", async () => {
-    global.fetch = jest.fn(() =>
-      Promise.reject(new Error("Network request failed"))
-    );
+  it("Network request fail", async () => {
+    const errorMessage = "Network request failed";
 
-    const url = "wrong-url";
+    global.fetch = jest.fn(() => Promise.reject(new Error(errorMessage)));
+
+    const url = "invalid-url-for-test";
 
     const { result } = renderHook(() => useFetch(url));
 
     await waitFor(() => {
       expect(result.current.isLoading).toBe(false);
       expect(result.current.fetchedData).toBeNull();
-      expect(result.current.errorStatus).not.toBeNull();
+      expect(result.current.errorStatus).toBe(errorMessage);
     });
 
-    expect(result.current.errorStatus).toBe("Network request failed");
     expect(fetch).toHaveBeenCalledTimes(1);
     expect(fetch).toHaveBeenCalledWith(url, undefined);
   });
 
-  
-  
+  it("should pass headers to fetch", async () => {
+    const headers = {
+      Authorization: "Bearer token",
+      "Content-Type": "application/json",
+    };
+
+    const url = "api/data";
+
+    global.fetch = jest.fn(() =>
+      Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve({}),
+        headers: new Headers(),
+        status: 200,
+      } as unknown as Response)
+    );
+
+    renderHook(() => useFetch(url, { headers }));
+
+    await waitFor(() => {
+      expect(fetch).toHaveBeenCalledWith(
+        url,
+        expect.objectContaining({ headers })
+      );
+    });
+  });
 });
