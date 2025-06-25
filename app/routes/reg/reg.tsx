@@ -1,6 +1,6 @@
 import type { Route } from "../+types/home";
 import { handleSubmitRegForm } from "./handleSubmitRegForm";
-import type { FormProps } from "../../../types/formProps";
+import type { FormPropsReg } from "../../../types/formProps";
 import { useState } from "react";
 import { changeRegFormData } from "./changeRegFormData";
 import {
@@ -16,7 +16,7 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Reg() {
-  const [formProps, setFormProps] = useState<FormProps>({
+  const [FormPropsReg, setFormPropsReg] = useState<FormPropsReg>({
     email: "",
     pass: "",
     passAgain: "",
@@ -26,7 +26,7 @@ export default function Reg() {
     <div className="bg-[#192024] w-dvw h-dvh">
       <form
         onSubmit={(event) => {
-          handleSubmitRegForm(event, formProps);
+          handleSubmitRegForm(event, FormPropsReg);
         }}
         className="absolute top-1/2 left-1/2 -translate-1/2 flex justify-center items-center flex-col gap-4"
       >
@@ -38,14 +38,14 @@ export default function Reg() {
             type="email"
             required
             className={
-              checkFormEmail(formProps.email)
+              checkFormEmail(FormPropsReg.email)
                 ? "standart-input"
                 : "standart-input-wrong-value"
             }
-            value={formProps.email}
+            value={FormPropsReg.email}
             onChange={(event) => {
-              setFormProps(
-                changeRegFormData({ event: event, FormProps: formProps })
+              setFormPropsReg(
+                changeRegFormData({ event: event, FormPropsReg: FormPropsReg })
               );
             }}
           />
@@ -58,14 +58,14 @@ export default function Reg() {
             type="password"
             required
             className={
-              checkFormPasswords(formProps.pass, formProps.passAgain)
+              checkFormPasswords(FormPropsReg.pass, FormPropsReg.passAgain)
                 ? "standart-input"
                 : "standart-input-wrong-value"
             }
-            value={formProps.pass}
+            value={FormPropsReg.pass}
             onChange={(event) => {
-              setFormProps(
-                changeRegFormData({ event: event, FormProps: formProps })
+              setFormPropsReg(
+                changeRegFormData({ event: event, FormPropsReg: FormPropsReg })
               );
             }}
           />
@@ -78,14 +78,14 @@ export default function Reg() {
             type="password"
             required
             className={
-              checkFormPasswords(formProps.pass, formProps.passAgain)
+              checkFormPasswords(FormPropsReg.pass, FormPropsReg.passAgain)
                 ? "standart-input"
                 : "standart-input-wrong-value"
             }
-            value={formProps.passAgain}
+            value={FormPropsReg.passAgain}
             onChange={(event) => {
-              setFormProps(
-                changeRegFormData({ event: event, FormProps: formProps })
+              setFormPropsReg(
+                changeRegFormData({ event: event, FormPropsReg: FormPropsReg })
               );
             }}
           />

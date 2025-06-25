@@ -1,18 +1,18 @@
-import type { FormProps } from "../../../types/formProps";
+import type { FormPropsReg } from "../../../types/formProps";
 
 interface getNewFormDataForChange {
   event: React.ChangeEvent<HTMLInputElement>;
-  FormProps: FormProps;
+  FormPropsReg: FormPropsReg;
 }
 
-const changeRegFormData = (data: getNewFormDataForChange): FormProps => {
+const changeRegFormData = (data: getNewFormDataForChange): FormPropsReg => {
   const { target } = data.event;
-  const { value, name } = target as { value: string; name: keyof FormProps };
+  const { value, name } = target as { value: string; name: keyof FormPropsReg };
 
-  let newFormProps: FormProps = {
-    email: data.FormProps.email || "",
-    pass: data.FormProps.pass || "",
-    passAgain: data.FormProps.passAgain || "",
+  let newFormProps: FormPropsReg = {
+    email: data.FormPropsReg.email || "",
+    pass: data.FormPropsReg.pass || "",
+    passAgain: data.FormPropsReg.passAgain || "",
   };
 
   if (!target || !value || !name) {

@@ -1,9 +1,9 @@
-import type { FormProps } from "../../../types/formProps";
+import type { FormPropsReg } from "../../../types/formProps";
 import { API_CONFIG } from "~/config";
 
 const handleSubmitRegForm = async (
   event: React.FormEvent<HTMLFormElement>,
-  formProps: FormProps
+  FormPropsReg: FormPropsReg
 ) => {
   event.preventDefault();
 
@@ -12,7 +12,7 @@ const handleSubmitRegForm = async (
     headers: {
       "Content-Type": "application/json;charset=utf-8",
     },
-    body: JSON.stringify(formProps),
+    body: JSON.stringify(FormPropsReg),
   });
   const data = await response.json();
 
