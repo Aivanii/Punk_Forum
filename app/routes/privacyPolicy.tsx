@@ -1,18 +1,18 @@
-import type { Route } from "../+types/home";
+import type { Route } from "./+types/home";
 import TopBar from "~/widgets/topBar/topBar";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Политика пользователя - Punk Forum" },
+    { title: "Политика конфиденциальности - Punk Forum" },
     {
       name: "description",
       content:
-        "Здесь вы можете ознакомиться с текущим положением политике пользователя ресурса Punk Forum.!",
+        "Здесь вы можете ознакомиться с текущим положением политики конфиденциальности ресурса Punk Forum.!",
     },
   ];
 }
 
-const UserAgreement = () => {
+const PrivacyPolicy = () => {
   return (
     <>
       <TopBar />
@@ -334,4 +334,4 @@ const UserAgreement = () => {
   );
 };
 
-export default UserAgreement;
+export default PrivacyPolicy;
