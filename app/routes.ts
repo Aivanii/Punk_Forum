@@ -7,8 +7,8 @@ export default [
   route("/reg", "./routes/reg/reg.tsx"),
   route("/login", "./routes/login/login.tsx"),
   //laws
-  route("/user_agreement", "./routes/userAgreement/userAgreement.tsx"),
-  route("/privacy_policy", "./routes/userAgreement/userAgreement.tsx"),
+  route("user_agreement", "./routes/userAgreement.tsx"),
+  route("/privacy_policy", "./routes/privacyPolicy.tsx"),
   //other
   route("/test", "./routes/test.tsx"),
 ] satisfies RouteConfig;
