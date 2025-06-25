@@ -6,6 +6,7 @@ import {
 import type { FormPropsLogin } from "types/formProps";
 import { changeLoginFormData } from "./changeLoginFormData";
 import { useState } from "react";
+import { handleSubmitForm } from "utils/validation/handleSubmitForm";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -21,7 +22,12 @@ export default function Login() {
   });
   return (
     <div className="bg-[#192024] w-dvw h-dvh">
-      <form className="absolute top-1/2 left-1/2 -translate-1/2 flex justify-center items-center flex-col gap-4">
+      <form
+        className="absolute top-1/2 left-1/2 -translate-1/2 flex justify-center items-center flex-col gap-4"
+        onSubmit={(event) => {
+          handleSubmitForm(event, FormPropsLogin);
+        }}
+      >
         <h1 className="main-title">Вход</h1>
         <div className="flex flex-col">
           <label htmlFor="email">Почта:</label>

@@ -1,5 +1,5 @@
 import type { Route } from "../+types/home";
-import { handleSubmitRegForm } from "./handleSubmitRegForm";
+import { handleSubmitForm } from "../../../utils/validation/handleSubmitForm";
 import type { FormPropsReg } from "../../../types/formProps";
 import { useState } from "react";
 import { changeRegFormData } from "./changeRegFormData";
@@ -26,7 +26,7 @@ export default function Reg() {
     <div className="bg-[#192024] w-dvw h-dvh">
       <form
         onSubmit={(event) => {
-          handleSubmitRegForm(event, FormPropsReg);
+          handleSubmitForm(event, FormPropsReg);
         }}
         className="absolute top-1/2 left-1/2 -translate-1/2 flex justify-center items-center flex-col gap-4"
       >
