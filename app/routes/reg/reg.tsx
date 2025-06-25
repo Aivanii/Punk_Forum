@@ -1,9 +1,10 @@
 import type { Route } from "../+types/home";
-import { handleSubmit } from "./handleSubmit";
+import { formPreventDefault } from "./formPreventDefault";
 import type { FormProps } from "./formProps";
 import { useState } from "react";
 import { changeFormData } from "./changeFormData";
 import { checkFormEmail, checkFormPasswords } from "./checkFormFields";
+import useFetch from "~/customHooks/useFetch";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -29,10 +30,16 @@ export default function Reg() {
     msg: "",
   });
 
+  const sendFormData = () => {
+    const { fetchedData, isLoading, errorStatus } = useFetch(
+      "https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits"
+    );
+  };
+
   return (
     <div className="bg-[#192024] w-dvw h-dvh">
       <form
-        onSubmit={handleSubmit}
+        onSubmit={formPreventDefault}
         className="absolute top-1/2 left-1/2 -translate-1/2 flex justify-center items-center flex-col gap-4"
       >
         {(statusMsg.status || statusMsg.msg) && (
