@@ -1,4 +1,4 @@
-import type { FormProps } from "./formProps";
+import type { FormProps } from "../../../types/formProps";
 
 interface getNewFormDataForChange {
   event: React.ChangeEvent<HTMLInputElement>;

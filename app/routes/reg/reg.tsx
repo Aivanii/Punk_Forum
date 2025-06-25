@@ -1,9 +1,9 @@
 import type { Route } from "../+types/home";
 import { handleSubmitForm } from "./handleSubmitForm";
-import type { FormProps } from "./formProps";
+import type { FormProps } from "../../../types/formProps";
 import { useState } from "react";
 import { changeFormData } from "./changeFormData";
-import { checkFormEmail, checkFormPasswords } from "./checkFormFields";
+import { checkFormEmail, checkFormPasswords } from "../../../utils/validation/checkFormFields";
 import useFetch from "~/customHooks/useFetch";
 
 export function meta({}: Route.MetaArgs) {

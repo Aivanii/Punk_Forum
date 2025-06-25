@@ -1,4 +1,4 @@
-import type { FormProps } from "./formProps";
+import type { FormProps } from "../../../types/formProps";
 import { API_CONFIG } from "~/config";
 
 const handleSubmitForm = async (
