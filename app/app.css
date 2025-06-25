@@ -13,12 +13,23 @@
 :root {
   --main-bg-color: #151c16ed;
   --primary-color: rgb(6,6,6);
+  --light-primary-color: rgb(189, 189, 189);
   --secondary-color: rgb(16, 16, 16);
+}
+
+a{
+  border-bottom: 1px var(--light-primary-color) solid;
+  transition: all 0.3s;
+  font-weight: 700;
+}
+a:hover{
+  color: white;
+  border-color: white;
 }
 
 html,
 body {
-  color: #c6c6cb;
+  color: var(--light-primary-color);
   font-family: Underdog;
 }
 
