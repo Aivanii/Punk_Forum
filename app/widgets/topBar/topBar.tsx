@@ -7,7 +7,7 @@ const TopBar = () => {
         </div>
         <div className="flex flex-row gap-4">
           <a href="/reg">Регистрация</a>
-          <a href="/reg">Вход</a>
+          <a href="/login">Вход</a>
         </div>
       </div>
     </div>
