@@ -1,5 +1,5 @@
 import type { Route } from "../+types/home";
-import { formPreventDefault } from "./formPreventDefault";
+import { handleSubmitForm } from "./handleSubmitForm";
 import type { FormProps } from "./formProps";
 import { useState } from "react";
 import { changeFormData } from "./changeFormData";
@@ -30,16 +30,12 @@ export default function Reg() {
     msg: "",
   });
 
-  const sendFormData = () => {
-    const { fetchedData, isLoading, errorStatus } = useFetch(
-      "https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits"
-    );
-  };
-
   return (
     <div className="bg-[#192024] w-dvw h-dvh">
       <form
-        onSubmit={formPreventDefault}
+        onSubmit={(event) => {
+          handleSubmitForm(event, formProps);
+        }}
         className="absolute top-1/2 left-1/2 -translate-1/2 flex justify-center items-center flex-col gap-4"
       >
         {(statusMsg.status || statusMsg.msg) && (
