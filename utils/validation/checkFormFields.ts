@@ -1,3 +1,5 @@
+import { API_CONFIG } from "config";
+
 const checkFormEmail = (email: string): boolean => {
   const EMAIL_REGEXP =
     /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
@@ -6,12 +8,18 @@ const checkFormEmail = (email: string): boolean => {
 };
 
 const checkFormPasswords = (pass: string, passAgain: string): boolean => {
-  const MIN_PASS_LENGTH: number = 8;
-  if (pass.length < MIN_PASS_LENGTH) {
+  if (pass.length < API_CONFIG.MIN_PASS_LENGTH) {
     return false;
   }
 
   return pass === passAgain;
 };
 
-export { checkFormEmail, checkFormPasswords };
+const checkFormSinglePassword = (pass: string): boolean => {
+  if (pass.length < API_CONFIG.MIN_PASS_LENGTH) {
+    return false;
+  }
+
+  return true;
+};
+export { checkFormEmail, checkFormPasswords, checkFormSinglePassword };

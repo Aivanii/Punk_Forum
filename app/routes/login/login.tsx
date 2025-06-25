@@ -1,5 +1,8 @@
 import type { Route } from "../+types/home";
-import { checkFormEmail } from "utils/validation/checkFormFields";
+import {
+  checkFormEmail,
+  checkFormSinglePassword,
+} from "utils/validation/checkFormFields";
 import type { FormPropsLogin } from "types/formProps";
 import { changeLoginFormData } from "./changeLoginFormData";
 import { useState } from "react";
@@ -49,7 +52,11 @@ export default function Login() {
             name="pass"
             type="password"
             required
-            className="standart-input"
+            className={
+              checkFormSinglePassword(FormPropsLogin.pass)
+                ? "standart-input"
+                : "standart-input-wrong-value"
+            }
             value={FormPropsLogin.pass}
             onChange={(event) => {
               setFormPropsLogin(

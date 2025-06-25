@@ -1,5 +1,5 @@
 import type { FormPropsReg } from "../../../types/formProps";
-import { API_CONFIG } from "~/config";
+import { API_CONFIG } from "config";
 
 const handleSubmitRegForm = async (
   event: React.FormEvent<HTMLFormElement>,
@@ -7,7 +7,7 @@ const handleSubmitRegForm = async (
 ) => {
   event.preventDefault();
 
-  const response = await fetch(`${API_CONFIG.backEndUrl}/registration`, {
+  const response = await fetch(`${API_CONFIG.BACKEND_URL}/registration`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
