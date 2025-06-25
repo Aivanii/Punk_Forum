@@ -1,13 +1,12 @@
 import type { Route } from "../+types/home";
-import { handleSubmitForm } from "./handleSubmitForm";
+import { handleSubmitRegForm } from "./handleSubmitRegForm";
 import type { FormProps } from "../../../types/formProps";
 import { useState } from "react";
-import { changeFormData } from "./changeFormData";
+import { changeRegFormData } from "./changeRegFormData";
 import {
   checkFormEmail,
   checkFormPasswords,
 } from "../../../utils/validation/checkFormFields";
-import useFetch from "~/customHooks/useFetch";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -27,7 +26,7 @@ export default function Reg() {
     <div className="bg-[#192024] w-dvw h-dvh">
       <form
         onSubmit={(event) => {
-          handleSubmitForm(event, formProps);
+          handleSubmitRegForm(event, formProps);
         }}
         className="absolute top-1/2 left-1/2 -translate-1/2 flex justify-center items-center flex-col gap-4"
       >
@@ -46,7 +45,7 @@ export default function Reg() {
             value={formProps.email}
             onChange={(event) => {
               setFormProps(
-                changeFormData({ event: event, FormProps: formProps })
+                changeRegFormData({ event: event, FormProps: formProps })
               );
             }}
           />
@@ -66,7 +65,7 @@ export default function Reg() {
             value={formProps.pass}
             onChange={(event) => {
               setFormProps(
-                changeFormData({ event: event, FormProps: formProps })
+                changeRegFormData({ event: event, FormProps: formProps })
               );
             }}
           />
@@ -86,7 +85,7 @@ export default function Reg() {
             value={formProps.passAgain}
             onChange={(event) => {
               setFormProps(
-                changeFormData({ event: event, FormProps: formProps })
+                changeRegFormData({ event: event, FormProps: formProps })
               );
             }}
           />

@@ -5,7 +5,7 @@ interface getNewFormDataForChange {
   FormProps: FormProps;
 }
 
-const changeFormData = (data: getNewFormDataForChange): FormProps => {
+const changeRegFormData = (data: getNewFormDataForChange): FormProps => {
   const { target } = data.event;
   const { value, name } = target as { value: string; name: keyof FormProps };
 
@@ -24,4 +24,4 @@ const changeFormData = (data: getNewFormDataForChange): FormProps => {
   return { ...newFormProps };
 };
 
-export { changeFormData };
+export { changeRegFormData };

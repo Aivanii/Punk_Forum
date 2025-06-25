@@ -1,7 +1,7 @@
 import type { FormProps } from "../../../types/formProps";
 import { API_CONFIG } from "~/config";
 
-const handleSubmitForm = async (
+const handleSubmitRegForm = async (
   event: React.FormEvent<HTMLFormElement>,
   formProps: FormProps
 ) => {
@@ -20,4 +20,4 @@ const handleSubmitForm = async (
   console.log(data);
 };
 
-export { handleSubmitForm };
+export { handleSubmitRegForm };
