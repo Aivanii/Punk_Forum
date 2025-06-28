@@ -41,6 +41,16 @@ h2 {
   font-size: 1.25em;
 }
 
+.section-container {
+  width: 100dvw;
+  max-width: 1280px;
+  margin: auto;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+}
+
 input {
   outline: none;
 }

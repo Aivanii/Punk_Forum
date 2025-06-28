@@ -16,7 +16,7 @@ const PrivacyPolicy = () => {
   return (
     <>
       <TopBar />
-      <div className="w-full max-w-[1280px] m-auto flex flex-col gap-8 pt-12 pb-20">
+      <div className="flex flex-col gap-8 section-container">
         <h1>ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ И ЗАЩИТЫ ПЕРСОНАЛЬНЫХ ДАННЫХ</h1>
 
         <p>
