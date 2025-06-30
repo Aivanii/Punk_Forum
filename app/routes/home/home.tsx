@@ -1,9 +1,13 @@
 import type { Route } from "../+types/home";
+import { useEffect, useState } from "react";
+
 import Header from "~/widgets/header/header";
 import TopBar from "~/widgets/topBar/topBar";
 import Nav from "~/routes/home/nav/nav";
 import Forums from "./forums/forums";
-import { useEffect, useState } from "react";
+import LoadingElem from "~/widgets/loading/loadingElem";
+
+import { API_CONFIG } from "config";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -20,9 +24,21 @@ export default function Home() {
     let params = new URLSearchParams(document.location.search);
     let topic = params.get("topic");
     if (topic) setChosenTopic(topic);
-
-    setIsPageLoading(false);
+    setTimeout(() => {
+      setIsPageLoading(false);
+    }, API_CONFIG.WAIT_FOR_LOADING_MS);
   }, []);
+
+  if (isPageLoading) {
+    return (
+      <>
+        <TopBar />
+        <Header />
+        <LoadingElem />
+      </>
+    );
+  }
+
   return (
     <>
       <TopBar />
