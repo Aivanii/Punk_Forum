@@ -28,7 +28,7 @@ export default function Reg() {
         <form
           className=" flex justify-center items-center flex-col gap-4"
           onSubmit={(event) => {
-            handleSubmitForm(event, FormPropsReg);
+            handleSubmitForm(event, FormPropsReg, "registration");
           }}
         >
           <h1 className="main-title">Регистрация</h1>
