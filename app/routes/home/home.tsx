@@ -1,7 +1,7 @@
-import type { Route } from "./+types/home";
+import type { Route } from "../+types/home";
 import Header from "~/widgets/header/header";
 import TopBar from "~/widgets/topBar/topBar";
-import Nav from "~/widgets/nav/nav";
+import Nav from "~/routes/home/nav/nav";
 
 export function meta({}: Route.MetaArgs) {
   return [
