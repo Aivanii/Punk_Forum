@@ -1,22 +1,16 @@
-import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { ThemeSections } from "./themeSections";
 import PhoneMenuBtn from "./phoneMenuBtn";
 
 import "./navStyles.css";
 
-const Nav = () => {
-  const [chosenTopic, setChosenTopic] = useState<string>("");
-  const [isPageLoading, setIsPageLoading] = useState<boolean>(true);
-
-  useEffect(() => {
-    let params = new URLSearchParams(document.location.search);
-    let topic = params.get("topic");
-    if (topic) setChosenTopic(topic);
-
-    setIsPageLoading(false);
-  }, []);
-
+const Nav = ({
+  isPageLoading,
+  chosenTopic,
+}: {
+  isPageLoading: boolean;
+  chosenTopic: string;
+}) => {
   return (
     <>
       {!isPageLoading && createPortal(<PhoneMenuBtn />, document.body)}
@@ -26,7 +20,6 @@ const Nav = () => {
         duration-700
         bg-[var(--main-bg-color)] sm:bg-transparent
         sm:relative sm:top-0 sm:left-0"
-
         id="nav"
       >
         <div className="section-container">

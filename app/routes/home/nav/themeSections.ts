@@ -7,41 +7,41 @@ export const ThemeSections: ThemeSections[] = [
   {
     id: 0,
     title: "Популярное",
-    url: "popular",
+    url: "Популярное",
   },
   {
     id: 1,
     title: "Новости",
-    url: "news",
+    url: "Новости",
   },
   {
     id: 2,
     title: "Основное",
-    url: "general",
+    url: "Основное",
   },
   {
     id: 3,
     title: "Истории",
-    url: "stories",
+    url: "Истории",
   },
   {
     id: 4,
     title: "Новинки",
-    url: "novelty",
+    url: "Новинки",
   },
   {
     id: 5,
     title: "Советы",
-    url: "advices",
+    url: "Советы",
   },
   {
     id: 6,
     title: "Сообщество",
-    url: "communuty",
+    url: "Сообщество",
   },
   {
     id: 7,
     title: "Правила",
-    url: "rules",
+    url: "Правила",
   },
 ];

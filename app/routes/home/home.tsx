@@ -2,6 +2,8 @@ import type { Route } from "../+types/home";
 import Header from "~/widgets/header/header";
 import TopBar from "~/widgets/topBar/topBar";
 import Nav from "~/routes/home/nav/nav";
+import Forums from "./forums/forums";
+import { useEffect, useState } from "react";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -11,12 +13,23 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
+  const [chosenTopic, setChosenTopic] = useState<string>("");
+  const [isPageLoading, setIsPageLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    let params = new URLSearchParams(document.location.search);
+    let topic = params.get("topic");
+    if (topic) setChosenTopic(topic);
+
+    setIsPageLoading(false);
+  }, []);
   return (
     <>
       <TopBar />
       <Header />
       <div className="bg-[url(./nav-bg.png)]">
-        <Nav />
+        <Nav isPageLoading={isPageLoading} chosenTopic={chosenTopic} />
+        <Forums chosenTopic={chosenTopic} />
       </div>
     </>
   );
