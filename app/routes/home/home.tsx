@@ -29,7 +29,7 @@ export default function Home() {
       <Header />
       <div className="bg-[url(./nav-bg.png)]">
         <Nav isPageLoading={isPageLoading} chosenTopic={chosenTopic} />
-        <Forums chosenTopic={chosenTopic} />
+        {chosenTopic && <Forums chosenTopic={chosenTopic} />}
       </div>
     </>
   );
