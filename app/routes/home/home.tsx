@@ -23,8 +23,8 @@ export default function Home() {
   useEffect(() => {
     let params = new URLSearchParams(document.location.search);
     let topic = params.get("topic");
-    if (topic) setChosenTopic(topic);
     setTimeout(() => {
+      if (topic) setChosenTopic(topic);
       setIsPageLoading(false);
     }, API_CONFIG.WAIT_FOR_LOADING_MS);
   }, []);
@@ -34,6 +34,9 @@ export default function Home() {
       <>
         <TopBar />
         <Header />
+        <div className="bg-[url(./nav-bg.png)]">
+          <Nav isPageLoading={isPageLoading} chosenTopic={chosenTopic} />
+        </div>
         <LoadingElem />
       </>
     );
