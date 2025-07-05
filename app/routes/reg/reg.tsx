@@ -21,6 +21,7 @@ export default function Reg() {
     password: "",
     passAgain: "",
   });
+  const [errorMsg, setErrorMsg] = useState<string>("");
 
   return (
     <div className="bg-[#192024] w-dvw h-dvh">
@@ -28,10 +29,15 @@ export default function Reg() {
         <form
           className=" flex justify-center items-center flex-col gap-4"
           onSubmit={(event) => {
-            handleSubmitForm(event, FormPropsReg, "registration");
+            handleSubmitForm(event, FormPropsReg, "registration", setErrorMsg);
           }}
         >
           <h1 className="main-title">Регистрация</h1>
+          {errorMsg && (
+            <div className="text bg-[var(--error-color)] rounded-xl w-full text-center p-2">
+              {errorMsg}
+            </div>
+          )}
           <div className="flex flex-col">
             <label htmlFor="email">Почта:</label>
             <input
@@ -62,7 +68,10 @@ export default function Reg() {
               type="password"
               required
               className={
-                checkFormPasswords(FormPropsReg.password, FormPropsReg.passAgain)
+                checkFormPasswords(
+                  FormPropsReg.password,
+                  FormPropsReg.passAgain
+                )
                   ? "standart-input"
                   : "standart-input-wrong-value"
               }
@@ -85,7 +94,10 @@ export default function Reg() {
               type="password"
               required
               className={
-                checkFormPasswords(FormPropsReg.password, FormPropsReg.passAgain)
+                checkFormPasswords(
+                  FormPropsReg.password,
+                  FormPropsReg.passAgain
+                )
                   ? "standart-input"
                   : "standart-input-wrong-value"
               }
@@ -106,10 +118,7 @@ export default function Reg() {
           </button>
         </form>
         <div className="text-center">
-          Уже есть аккаунт?{" "}
-          <a href="/login">
-            Войти
-          </a>
+          Уже есть аккаунт? <a href="/login">Войти</a>
         </div>
         <div className="text-center flex justify-center items-center gap-4 my-2">
           <span className="relative w-2/5 border-b-1 border-[var(--light-primary-color)] flex"></span>
