@@ -3,7 +3,7 @@ import {
   checkFormEmail,
   checkFormSinglePassword,
 } from "utils/validation/checkFormFields";
-import type { FormPropsLogin } from "types/formProps";
+import type { FormProps } from "types/formProps";
 import { changeLoginFormData } from "./changeLoginFormData";
 import { useState } from "react";
 import { handleSubmitForm } from "utils/validation/handleSubmitForm";
@@ -16,9 +16,9 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Login() {
-  const [FormPropsLogin, setFormPropsLogin] = useState<FormPropsLogin>({
+  const [FormProps, setFormPropsLogin] = useState<FormProps>({
     email: "",
-    pass: "",
+    password: "",
   });
   return (
     <div className="bg-[#192024] w-dvw h-dvh">
@@ -26,7 +26,7 @@ export default function Login() {
         <form
           className=" flex justify-center items-center flex-col gap-4"
           onSubmit={(event) => {
-            handleSubmitForm(event, FormPropsLogin);
+            handleSubmitForm(event, FormProps, "login");
           }}
         >
           <h1 className="main-title">Вход</h1>
@@ -37,16 +37,16 @@ export default function Login() {
               type="email"
               required
               className={
-                checkFormEmail(FormPropsLogin.email)
+                checkFormEmail(FormProps.email)
                   ? "standart-input"
                   : "standart-input-wrong-value"
               }
-              value={FormPropsLogin.email}
+              value={FormProps.email}
               onChange={(event) => {
                 setFormPropsLogin(
                   changeLoginFormData({
                     event: event,
-                    FormPropsLogin: FormPropsLogin,
+                    FormPropsLogin: FormProps,
                   })
                 );
               }}
@@ -54,22 +54,22 @@ export default function Login() {
           </div>
 
           <div className="flex flex-col">
-            <label htmlFor="pass">Пароль:</label>
+            <label htmlFor="password">Пароль:</label>
             <input
-              name="pass"
+              name="password"
               type="password"
               required
               className={
-                checkFormSinglePassword(FormPropsLogin.pass)
+                checkFormSinglePassword(FormProps.password)
                   ? "standart-input"
                   : "standart-input-wrong-value"
               }
-              value={FormPropsLogin.pass}
+              value={FormProps.password}
               onChange={(event) => {
                 setFormPropsLogin(
                   changeLoginFormData({
                     event: event,
-                    FormPropsLogin: FormPropsLogin,
+                    FormPropsLogin: FormProps,
                   })
                 );
               }}
@@ -87,6 +87,7 @@ export default function Login() {
           <span>или</span>
           <span className="relative w-2/5 border-b-1 border-[var(--light-primary-color)] flex"></span>
         </div>
+
         <div className="flex justify-center items-center">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Google_Favicon_2025.svg/250px-Google_Favicon_2025.svg.png"
