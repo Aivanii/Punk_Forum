@@ -26,6 +26,13 @@ export default function Reg() {
   return (
     <div className="bg-[#192024] w-dvw h-dvh">
       <div className="absolute top-1/2 left-1/2 -translate-1/2">
+        <a href="/" className="cursor-pointer text-center w-3xs">
+          <img
+            src="./punkForumLogo.png"
+            alt="логотип punk forum"
+            className="w-3xs rounded-xl mb-4"
+          />
+        </a>
         <form
           className=" flex justify-center items-center flex-col gap-4"
           onSubmit={(event) => {
