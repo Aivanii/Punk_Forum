@@ -15,6 +15,7 @@
   --primary-color: rgb(6, 6, 6);
   --light-primary-color: rgb(189, 189, 189);
   --secondary-color: rgb(16, 16, 16);
+  --error-color: rgba(255, 0, 0, 0.534);
 }
 
 a {

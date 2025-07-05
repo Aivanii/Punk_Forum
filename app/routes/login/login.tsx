@@ -20,16 +20,26 @@ export default function Login() {
     email: "",
     password: "",
   });
+  const [errorMsg, setErrorMsg] = useState<string>("");
   return (
     <div className="bg-[#192024] w-dvw h-dvh">
       <div className="absolute top-1/2 left-1/2 -translate-1/2">
         <form
           className=" flex justify-center items-center flex-col gap-4"
           onSubmit={(event) => {
-            handleSubmitForm(event, FormProps, "login");
+            handleSubmitForm(event, FormProps, "login", setErrorMsg);
           }}
         >
           <h1 className="main-title">Вход</h1>
+
+          {errorMsg && (
+            <div
+              className="text bg-[var(--error-color)] rounded-xl w-full text-center p-2"
+            >
+              {errorMsg}
+            </div>
+          )}
+
           <div className="flex flex-col">
             <label htmlFor="email">Почта:</label>
             <input
