@@ -32,7 +32,7 @@ const Nav = ({
                 <div>
                   <a
                     href={`/?topic=${elem.url}`}
-                    className={`h-20 flex items-center justify-center cursor-pointer
+                    className={`h-20 flex items-center justify-center cursor-pointer border-0
                     w-72 md:w-96 lg:w-64 
                 ${
                   chosenTopic === elem.url ? "bg-green-950" : "bg-[#0a1d11c2]"

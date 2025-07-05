@@ -18,7 +18,7 @@ export function meta({}: Route.MetaArgs) {
 export default function Reg() {
   const [FormPropsReg, setFormPropsReg] = useState<FormPropsReg>({
     email: "",
-    pass: "",
+    password: "",
     passAgain: "",
   });
 
@@ -56,17 +56,17 @@ export default function Reg() {
           </div>
 
           <div className="flex flex-col">
-            <label htmlFor="pass">Пароль:</label>
+            <label htmlFor="password">Пароль:</label>
             <input
-              name="pass"
+              name="password"
               type="password"
               required
               className={
-                checkFormPasswords(FormPropsReg.pass, FormPropsReg.passAgain)
+                checkFormPasswords(FormPropsReg.password, FormPropsReg.passAgain)
                   ? "standart-input"
                   : "standart-input-wrong-value"
               }
-              value={FormPropsReg.pass}
+              value={FormPropsReg.password}
               onChange={(event) => {
                 setFormPropsReg(
                   changeRegFormData({
@@ -85,7 +85,7 @@ export default function Reg() {
               type="password"
               required
               className={
-                checkFormPasswords(FormPropsReg.pass, FormPropsReg.passAgain)
+                checkFormPasswords(FormPropsReg.password, FormPropsReg.passAgain)
                   ? "standart-input"
                   : "standart-input-wrong-value"
               }

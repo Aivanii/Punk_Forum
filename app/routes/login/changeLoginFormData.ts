@@ -11,7 +11,7 @@ const changeLoginFormData = (data: getNewFormDataForChange): FormPropsLogin => {
 
   let newFormProps: FormPropsLogin = {
     email: data.FormPropsLogin.email || "",
-    pass: data.FormPropsLogin.pass || "",
+    password: data.FormPropsLogin.password || "",
   };
 
   if (!target || !value || !name) {

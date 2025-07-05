@@ -1,11 +1,11 @@
 interface FormPropsReg {
   email: string;
-  pass: string;
+  password: string;
   passAgain: string;
 }
-interface FormPropsLogin {
+interface FormProps {
   email: string;
-  pass: string;
+  password: string;
 }
 
-export { FormPropsReg, FormPropsLogin };
+export { FormPropsReg, FormProps };

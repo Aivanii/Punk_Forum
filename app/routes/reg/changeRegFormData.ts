@@ -11,7 +11,7 @@ const changeRegFormData = (data: getNewFormDataForChange): FormPropsReg => {
 
   let newFormProps: FormPropsReg = {
     email: data.FormPropsReg.email || "",
-    pass: data.FormPropsReg.pass || "",
+    password: data.FormPropsReg.password || "",
     passAgain: data.FormPropsReg.passAgain || "",
   };
 

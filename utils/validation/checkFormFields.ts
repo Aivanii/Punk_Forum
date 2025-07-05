@@ -7,16 +7,16 @@ const checkFormEmail = (email: string): boolean => {
   return EMAIL_REGEXP.test(email);
 };
 
-const checkFormPasswords = (pass: string, passAgain: string): boolean => {
-  if (pass.length < API_CONFIG.MIN_PASS_LENGTH) {
+const checkFormPasswords = (password: string, passAgain: string): boolean => {
+  if (password.length < API_CONFIG.MIN_PASS_LENGTH) {
     return false;
   }
 
-  return pass === passAgain;
+  return password === passAgain;
 };
 
-const checkFormSinglePassword = (pass: string): boolean => {
-  if (pass.length < API_CONFIG.MIN_PASS_LENGTH) {
+const checkFormSinglePassword = (password: string): boolean => {
+  if (password.length < API_CONFIG.MIN_PASS_LENGTH) {
     return false;
   }
 
