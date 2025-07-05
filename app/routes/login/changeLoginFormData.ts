@@ -7,7 +7,10 @@ interface getNewFormDataForChange {
 
 const changeLoginFormData = (data: getNewFormDataForChange): FormPropsLogin => {
   const { target } = data.event;
-  const { value, name } = target as { value: string; name: keyof FormPropsLogin };
+  const { value, name } = target as {
+    value: string;
+    name: keyof FormPropsLogin;
+  };
 
   let newFormProps: FormPropsLogin = {
     email: data.FormPropsLogin.email || "",

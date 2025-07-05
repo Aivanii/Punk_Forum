@@ -8,4 +8,3 @@ export const OpenCloseLogic = () => {
     menuElem.classList.add("nav-active");
   }
 };
- 

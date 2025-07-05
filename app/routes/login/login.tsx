@@ -33,9 +33,7 @@ export default function Login() {
           <h1 className="main-title">Вход</h1>
 
           {errorMsg && (
-            <div
-              className="text bg-[var(--error-color)] rounded-xl w-full text-center p-2"
-            >
+            <div className="text bg-[var(--error-color)] rounded-xl w-full text-center p-2">
               {errorMsg}
             </div>
           )}

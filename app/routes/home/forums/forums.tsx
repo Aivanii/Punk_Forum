@@ -25,7 +25,11 @@ const Forums = ({ chosenTopic }: { chosenTopic: string }) => {
         </div>
       </div>
       <div>
-        <PageNumLine currentPage = {currentPage} setCurrentPage = {setCurrentPage} maxPage = {maxPage}/>
+        <PageNumLine
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          maxPage={maxPage}
+        />
       </div>
     </div>
   );

@@ -19,13 +19,13 @@ const handleSubmitForm = async (
       body: JSON.stringify(FormProps),
     });
 
-    console.log(response)
+    console.log(response);
     if (!response.ok) {
       throw new Error(`Ошибка соединения! Статус: ${response.status}`);
     }
 
     const data = await response.json();
-    console.log(data)
+    console.log(data);
     if (data.success === false) {
       throw new Error(data.message || "Неизвестная ошибка");
     }
