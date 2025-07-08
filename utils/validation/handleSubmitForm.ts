@@ -20,14 +20,13 @@ const handleSubmitForm = async (
     });
 
     console.log(response);
-    if (!response.ok) {
-      throw new Error(`Ошибка соединения! Статус: ${response.status}`);
-    }
-
     const data = await response.json();
     console.log(data);
-    if (data.success === false) {
-      throw new Error(data.message || "Неизвестная ошибка");
+
+    if (!response.ok || data.success === false) {
+      throw new Error(
+        data.message ? `Ошибка входа: ${data.message}` : "Ошибка соединения"
+      );
     }
   } catch (err: unknown) {
     let errorMsg = "Неизвестная ошибка";
