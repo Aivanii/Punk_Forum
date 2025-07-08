@@ -7,6 +7,8 @@ import Nav from "~/routes/home/nav/nav";
 import Forums from "./forums/forums";
 import LoadingElem from "~/widgets/loading/loadingElem";
 
+import { useAuth } from "~/customHooks/useAuth";
+
 import { API_CONFIG } from "config";
 
 export function meta({}: Route.MetaArgs) {
@@ -17,6 +19,8 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
+  const { user, isAuthentificated, isLoading } = useAuth();
+
   const [chosenTopic, setChosenTopic] = useState<string>("");
   const [isPageLoading, setIsPageLoading] = useState<boolean>(true);
 
