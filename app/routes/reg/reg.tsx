@@ -46,7 +46,7 @@ export default function Reg() {
           <img
             src="./punkForumLogo.png"
             alt="логотип punk forum"
-            className="w-3xs rounded-xl mb-4"
+            className="w-3xs rounded-xl mb-4 m-auto"
           />
         </a>
         <form
