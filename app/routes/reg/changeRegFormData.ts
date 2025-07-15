@@ -10,6 +10,8 @@ const changeRegFormData = (data: getNewFormDataForChange): FormPropsReg => {
   const { value, name } = target as { value: string; name: keyof FormPropsReg };
 
   let newFormProps: FormPropsReg = {
+    nickname: data.FormPropsReg.nickname || "",
+    unique_name: data.FormPropsReg.unique_name || "",
     email: data.FormPropsReg.email || "",
     password: data.FormPropsReg.password || "",
     passAgain: data.FormPropsReg.passAgain || "",

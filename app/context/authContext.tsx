@@ -3,6 +3,7 @@ import { API_CONFIG } from "config";
 
 interface User {
   uniqueName: string;
+  avatarUrl: string;
   nickName: string;
   email: string;
   id: string;

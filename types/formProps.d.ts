@@ -1,4 +1,6 @@
 interface FormPropsReg {
+  nickname: string;
+  unique_name: string;
   email: string;
   password: string;
   passAgain: string;

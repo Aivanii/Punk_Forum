@@ -1,11 +1,12 @@
 import type { Route } from "../+types/home";
 import { handleSubmitForm } from "../../../utils/validation/handleSubmitForm";
 import type { FormPropsReg } from "../../../types/formProps";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { changeRegFormData } from "./changeRegFormData";
 import {
   checkFormEmail,
   checkFormPasswords,
+  checkFormUniqueNickname,
 } from "../../../utils/validation/checkFormFields";
 
 export function meta({}: Route.MetaArgs) {
@@ -17,11 +18,26 @@ export function meta({}: Route.MetaArgs) {
 
 export default function Reg() {
   const [FormPropsReg, setFormPropsReg] = useState<FormPropsReg>({
+    nickname: "",
+    unique_name: "",
     email: "",
     password: "",
     passAgain: "",
   });
   const [errorMsg, setErrorMsg] = useState<string>("");
+
+  useEffect(() => {
+    const clearFormPropsReg = () => {
+      setFormPropsReg({
+        nickname: "",
+        unique_name: "",
+        email: "",
+        password: "",
+        passAgain: "",
+      });
+    };
+    clearFormPropsReg();
+  }, []);
 
   return (
     <div className="bg-[#192024] w-dvw h-dvh">
@@ -45,6 +61,53 @@ export default function Reg() {
               {errorMsg}
             </div>
           )}
+
+          <div className="flex flex-col">
+            <label htmlFor="unique_name">Имя аккаунта:</label>
+            <input
+              name="unique_name"
+              type="text"
+              required
+              className={
+                checkFormUniqueNickname(FormPropsReg.unique_name)
+                  ? "standart-input"
+                  : "standart-input-wrong-value"
+              }
+              value={FormPropsReg.unique_name}
+              onChange={(event) => {
+                setFormPropsReg(
+                  changeRegFormData({
+                    event: event,
+                    FormPropsReg: FormPropsReg,
+                  })
+                );
+              }}
+            />
+          </div>
+
+          <div className="flex flex-col">
+            <label htmlFor="nickname">Отображаемое имя:</label>
+            <input
+              name="nickname"
+              type="text"
+              required
+              className={
+                checkFormUniqueNickname(FormPropsReg.nickname)
+                  ? "standart-input"
+                  : "standart-input-wrong-value"
+              }
+              value={FormPropsReg.nickname}
+              onChange={(event) => {
+                setFormPropsReg(
+                  changeRegFormData({
+                    event: event,
+                    FormPropsReg: FormPropsReg,
+                  })
+                );
+              }}
+            />
+          </div>
+
           <div className="flex flex-col">
             <label htmlFor="email">Почта:</label>
             <input
